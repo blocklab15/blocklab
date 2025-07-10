@@ -1,8 +1,3 @@
-<section style="text-align: center; margin-top: 40px;">
-  <h2>Sobre a BLOCKLAB</h2>
-  <img src="blocklab-info.png" alt="Informações sobre a BLOCKLAB" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 0 10px rgba(0,0,0,0.2);" />
-</section>
-
 ![image](https://github.com/user-attachments/assets/89cf0225-277e-4e55-8e6e-a210ccb4ac02)
 
 "Transformar ideias em soluções blockchain com impacto econômico, social e sustentável."
