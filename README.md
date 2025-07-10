@@ -2,7 +2,8 @@
 
 "Transformar ideias em soluções blockchain com impacto econômico, social e sustentável."
 
-# blocklab
+# Blocklab
+
 A BLOCKLAB é uma organização pioneira dedicada à construção de pontes entre o universo da Criptoeconomia e o Planejamento Estratégico aplicado. Sua missão é promover a inovação sustentável por meio de consultorias técnicas, capacitação e estruturação de projetos tokenizados alinhados aos Objetivos de Desenvolvimento Sustentável (ODS)
 Consultoria para Estruturação de Tokens e Projetos Web3 – criação de tokenomics, definição de contratos inteligentes (smart contracts), estrutura jurídica e modelagem de negócios em blockchain.
 
