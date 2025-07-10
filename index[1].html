@@ -1,140 +1,58 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <title>BLOCKLAB — Token Oficial</title>
-  <script src="https://cdn.jsdelivr.net/npm/@solana/web3.js@latest/lib/index.iife.min.js"></script>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-      color: white;
-      text-align: center;
-      padding: 50px 10px;
-      min-height: 100vh;
-    }
-    h1 {
-      font-size: 2.8rem;
-      margin-bottom: 12px;
-    }
-    p {
-      font-size: 1.2rem;
-    }
-    .btn {
-      padding: 15px 25px;
-      margin: 15px;
-      border: none;
-      border-radius: 10px;
-      font-size: 1.1rem;
-      cursor: pointer;
-      color: white;
-      transition: background 0.2s;
-      box-shadow: 0 3px 14px 0 #0004;
-    }
-    .connect {
-      background-color: #ff8800;
-    }
-    .connect:hover {
-      background: #ffad42;
-    }
-    .buy {
-      background-color: #00c896;
-    }
-    .buy:hover {
-      background: #22e6b6;
-    }
-    #wallet-info {
-      margin-top: 25px;
-      background: #211e37cc;
-      border-radius: 8px;
-      display: inline-block;
-      padding: 20px 30px;
-      box-shadow: 0 3px 14px 0 #0006;
-    }
-    #wallet-address {
-      font-family: monospace;
-      font-size: 1.1rem;
-      margin: 12px 0 8px 0;
-      word-break: break-all;
-    }
-    #copy-btn {
-      padding: 7px 16px;
-      background: #48406c;
-      color: #fff;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 0.98rem;
-      margin-left: 6px;
-    }
-    #copy-btn:hover {
-      background: #5e509c;
-    }
-    .sol-balance {
-      font-size: 1.07rem;
-      color: #44ffd0;
-      margin-top: 8px;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BLOCKLAB - Web3 & Estratégia</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <header>
+    <div class="container">
+      <h1>BLOCKLAB</h1>
+      <p>A 1ª Instituição Mineira do Ecossistema Blockchain</p>
+    </div>
+  </header>
 
-  <h1>🚀 BLOCKLAB Token Oficial</h1>
-  <p>Participe da revolução Web3 com o token mineiro da inovação estratégica.</p>
+  <section class="intro">
+    <div class="container">
+      <h2>Consultoria Estratégica para Ativos Digitais</h2>
+      <p>Planejamento, tokenização, Web3, DAOs e muito mais.</p>
+      <a href="https://pump.fun/coin/GUm6bESekm7MPVZGCGLYWM8o9yvMr6ua2K5KGuw3pump" target="_blank" class="btn">🚀 Comprar Token BLOCKLAB</a>
+    </div>
+  </section>
 
-  <button class="btn connect" onclick="connectWallet()">🔗 Conectar Carteira</button>
-  <button class="btn buy" onclick="window.open('https://pump.fun/coin/GUm6bESekm7MPVZGCGLYWM8o9yvMr6ua2K5KGuw3pump', '_blank')">🪙 Comprar Token</button>
+  <section class="sobre">
+    <div class="container">
+      <h2>Quem Somos</h2>
+      <p>Somos pioneiros em Minas Gerais com foco em planejamento estratégico e criptoeconomia. Atendemos empresas, startups e governos que desejam atuar no novo mercado digital.</p>
+    </div>
+  </section>
 
-  <div id="wallet-info" style="display:none;">
-    <span style="font-weight:bold;">Carteira conectada:</span>
-    <div id="wallet-address"></div>
-    <button id="copy-btn" onclick="copyAddress()">Copiar endereço</button>
-    <div class="sol-balance" id="sol-balance"></div>
-  </div>
+  <section class="servicos">
+    <div class="container">
+      <h2>O que fazemos</h2>
+      <ul>
+        <li>📈 Tokenização de projetos imobiliários e sociais</li>
+        <li>🧠 Educação em blockchain, Web3 e ativos digitais</li>
+        <li>🧩 Estruturação de Smart Contracts e DAOs</li>
+        <li>📊 Consultoria estratégica para captação via tokens</li>
+      </ul>
+    </div>
+  </section>
 
-  <script>
-    let connectedPublicKey = "";
+  <section class="contato">
+    <div class="container">
+      <h2>Fale Conosco</h2>
+      <p>E-mail: <a href="mailto:leandroalmeida.la10@gmail.com">leandroalmeida.la10@gmail.com</a></p>
+      <p>WhatsApp: <a href="https://wa.me/5531995810421" target="_blank">Clique para conversar</a></p>
+    </div>
+  </section>
 
-    async function connectWallet() {
-      if (window.solana && window.solana.isPhantom) {
-        try {
-          const response = await window.solana.connect();
-          connectedPublicKey = response.publicKey.toString();
-          showWalletInfo(connectedPublicKey);
-          fetchBalance(connectedPublicKey);
-        } catch (err) {
-          alert("Conexão cancelada!");
-        }
-      } else {
-        alert("Instale a carteira Phantom para continuar: https://phantom.app/");
-      }
-    }
-
-    function showWalletInfo(pubkey) {
-      document.getElementById("wallet-info").style.display = "inline-block";
-      let short = pubkey.slice(0, 4) + "..." + pubkey.slice(-4);
-      document.getElementById("wallet-address").innerText = short;
-    }
-
-    async function fetchBalance(pubkey) {
-      const connection = new solanaWeb3.Connection(solanaWeb3.clusterApiUrl('mainnet-beta'));
-      try {
-        const balance = await connection.getBalance(new solanaWeb3.PublicKey(pubkey));
-        document.getElementById("sol-balance").innerText = "Saldo: " + (balance / solanaWeb3.LAMPORTS_PER_SOL).toFixed(4) + " SOL";
-      } catch (e) {
-        document.getElementById("sol-balance").innerText = "Saldo: erro ao buscar.";
-      }
-    }
-
-    function copyAddress() {
-      if (!connectedPublicKey) return;
-      navigator.clipboard.writeText(connectedPublicKey).then(() => {
-        document.getElementById("copy-btn").innerText = "Copiado!";
-        setTimeout(()=> {
-          document.getElementById("copy-btn").innerText = "Copiar endereço";
-        }, 1100);
-      });
-    }
-  </script>
+  <footer>
+    <div class="container">
+      <p>© 2025 BLOCKLAB | Powered by Web3</p>
+    </div>
+  </footer>
 </body>
 </html>
